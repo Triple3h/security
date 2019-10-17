@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/security?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 20
+      max-active: 50
+      min-idle: 15
+      validation-query: 'select 1'
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      # psCache, 缓存preparedStatement, 对支持游标的数据库性能有巨大的提升，oracle开启，mysql建议关闭
+      pool-prepared-statements: false
+      # psCache开启的时候有效
+      max-open-prepared-statements: 100
+      # 一个连接在被驱逐出连接池的时候，在连接池中最小的空闲时间，单位为毫秒
+      min-evictable-idle-time-millis: 30000
+      # 距离上次释放空闲连接的时间间隔
+      time-between-eviction-runs-millis: 30000
+server:
+  port: 8081
+
+aliyun:
+  sms:
+    accessKeyId: LTAI4FqSqi9KFzPWjhVyjxrZ
+    accessKeySecret: npKUd6OmHbE21S8JovVwR6jvYpGUCy
+    templateId: SMS_175536896
+    sign: triple3h
